@@ -1,6 +1,6 @@
 <?php
 
-require("./sendgrid-php/sendgrid-php.php");
+require("./vendor/autoload.php");
 
 $email_site = "biten.renan@gmail.com";
 $nome_site = "Bikcraft";
@@ -25,7 +25,7 @@ $email->setReplyTo($email_user, $nome_user);
 $email->setSubject("Formulário Bikcraft");
 $email->addContent("text/plain", $body_content);
 
-$sendgrid = new \SendGrid("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");
+$sendgrid = new \SendGrid("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");
 try {
     $response = $sendgrid->send($email);
     print $response->statusCode() . "\n";
